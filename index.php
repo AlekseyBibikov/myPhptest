@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-
+echo "hi";
 //var_dump();
 // print_r () - выводит значение;
 //  <=> - оператор сравнения;
