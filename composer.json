@@ -1,0 +1,20 @@
+{
+    "name": "user/myphptest",
+    "description": "Test php",
+    "require": {
+        "psr/log": "@stable",
+        "monolog/monolog": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "User\\Myphptest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AlekseyBibikov",
+            "email": "alekseybibikov@mail.ru"
+        }
+    ],
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML FORM</title>
+</head>
+<body>
+    <form action="lessons.php" method="post" attr="form_1">
+        <input type="text" name="username" placeholder="Введите имя" value="ALex"><br />
+        <input type="email" name="email" placeholder="Введите email" value="php@net.ru"><br />
+        <input type="submit" name="submit" value="Отправить форму">
+    </form>
+    <br />
+    <form action="lessons.php" method="post" attr="form_2">
+        <input type="text" name="username" placeholder="Введите имя" value="Igor"><br />
+        <input type="email" name="email" placeholder="Введите email" value="loock@mail.ru"><br />
+        <input type="submit" name="submit" value="Отправить форму">
+    </form>
+    <br />
+    <form enctype="multipart/form-data" action="lessons.php" method="post" attr="form_3">
+        Отправить этот файл: <br/>
+        <input type="file" name="file_name"><br/>
+        <input type="submit" name="submit" value="Отправить">
+    </form>
+<script>
+        document.querySelectorAll('form').forEach(x => x.action = x.action + "?utm=" + x.attributes.attr.value);
+        var data_form = {};
+        document.querySelectorAll('form').forEach(function (x) {
+            var inp_name = {};
+            data_form[x.attributes.attr.value] = {inp_name};
+
+            var inputCol = x.querySelectorAll('input');
+                inputCol.forEach(x => inp_name[x.name] = x.value);
+        });
+        var str_json = JSON.stringify(data_form);
+        localStorage.setItem("str_json", str_json);
+</script>
+</body>
+</html>
