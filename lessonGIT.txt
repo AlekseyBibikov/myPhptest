@@ -1,0 +1,1 @@
+http://github.com/github/gitignore - собраны все правила .gitignore для разных языков и задач.
