@@ -1,7 +1,7 @@
 #!/c/php/php/
 <?php
 // declare(strict_types=1);
-phpinfo();
+// phpinfo();
     //header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
     //header('Content-Disposition: attachment; filename="downloaded.pdf"');
     //readfile('text.pdf');
@@ -62,6 +62,21 @@ phpinfo();
 //}
 //hanoy(3, 'A', 'B', 'C');
 
+//Lesson 15 Генератор Анонимной функции, callback, Замыкания
+	// $gl = 5;
+	// $nameing = function (string $name) use ($gl): iterable {
+		// for ($i=0;$i<$gl;$i++){
+			// yield $name[$i] . PHP_EOL;
+		// }
+	// };
+	// $user = $nameing('aleksey');
+	// function userFunction($genret){
+		// foreach($genret as $i){
+			// echo $i;
+		// }
+	// };
+	// $callback = 'userFunction'; 
+	// $callback($user);
 // Lesson 17 Cookies and global $_SESSION
 
 //session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
