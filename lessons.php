@@ -1,28 +1,36 @@
+#!/c/php/php/
 <?php
-declare(strict_types=1);
-//phpinfo();
+// declare(strict_types=1);
+phpinfo();
     //header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
     //header('Content-Disposition: attachment; filename="downloaded.pdf"');
     //readfile('text.pdf');
 
+// Lesson 4 Потоки ввода и вывода.
+
+	// STDIN == fopen('php://stdin', 'r'); открывает фаил для чтения.
+	// STDIN - константа потока ввода. STDOUT - Вывод. STDERR - Вывод Ошибки.
+	// cat text.txt | php index.php - Результат команды 1 передает в команду 2; cat это чтение файла в консоли. 
+	// Есть еще вариант со стрелочкой '<'  
+
 // Lesson 5 Глобальная $argv = входные параметры, проверка памяти.
 
-//$argv[$argc++] = $argv;
-//for ($a=0; $a < $argc; $a++){
-//    if (is_array($argv[$a])){
-//        echo "key array[$a] = [ ";
-//        foreach ($argv[$a] as $b){
-//            echo "$b, ";
-//        }
-//        echo "]". PHP_EOL;
-//    }else{
-//        echo "key array[$a] = ".$argv[$a]. PHP_EOL;
-//    }
-//}
-//$c = str_repeat($argv[0], 10000);
-//unset($c);
-//echo "Используется сейчас: ". round(memory_get_usage()/1024). " кб" .PHP_EOL;
-//echo "Пиковое использование: ". round(memory_get_peak_usage()/1024). " кб".PHP_EOL;
+	//$argv[$argc++] = $argv;
+	//for ($a=0; $a < $argc; $a++){
+	//    if (is_array($argv[$a])){
+	//        echo "key array[$a] = [ ";
+	//        foreach ($argv[$a] as $b){
+	//            echo "$b, ";
+	//        }
+	//        echo "]". PHP_EOL;
+	//    }else{
+	//        echo "key array[$a] = ".$argv[$a]. PHP_EOL;
+	//    }
+	//}
+	//$c = str_repeat($argv[0], 10000);
+	//unset($c);
+	//echo "Используется сейчас: ". round(memory_get_usage()/1024). " кб" .PHP_EOL;
+	//echo "Пиковое использование: ". round(memory_get_peak_usage()/1024). " кб".PHP_EOL;
 
 // Lesson 11 Ханойская башня или рекурсивный подход. ФУНКЦИЯ
 // ...$array обращение массива (раскрытие или закрытие аргументов)
