@@ -62,7 +62,7 @@
 //}
 //hanoy(3, 'A', 'B', 'C');
 
-//Lesson 15 Генератор Анонимной функции, callback, Замыкания
+//Lesson 12 Генератор Анонимной функции, callback, Замыкания
 	// $gl = 5;
 	// $nameing = function (string $name) use ($gl): iterable {
 		// for ($i=0;$i<$gl;$i++){
@@ -77,18 +77,30 @@
 	// };
 	// $callback = 'userFunction'; 
 	// $callback($user);
-// Lesson 17 Cookies and global $_SESSION
 
-//session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
-//$name = "TestCookie";
-//$value = "SERVER_PROTOCOL : " . $_SERVER['SERVER_PROTOCOL'];
-//$expires = time()+60;
-//setcookie($name, $value); // создание cookie;
+// lesson 13 Работа с Датой и временем. Отличие Процедурный стиль от ООП. 
+
+	$dateString = date('d-m-y', time()+60*60*24*5); //Вернет string. time() это называется тайм штамп Вернет int
+	$procedura = date_create_from_format('d-m-y', $dateString); //Вернет obj DateTime
+	$procedura = date_modify($procedura, '+10 day');
+	$procedura = date_format($procedura, 'j-M-Y');
+	$object = DateTime::createFromFormat('d-m-y', $dateString); //Вернет obj DateTime. Двойное двоеточие позваляет нам обратится к статическим свойствам, константам, свойствам и методам класса DateTime.
+    $object->modify('+ 10 day');// modify & format - методы класса DateTime
+	$formatString = $object->format('m-d-Y');
+	print_r($object);
+
+// Lesson 18 Cookies and global $_SESSION
+
+// session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
+// $name = "TestCookie";
+// $value = "SERVER_PROTOCOL : " . $_SERVER['SERVER_PROTOCOL'];
+// $expires = time()+60;
+// setcookie($name, $value); // создание cookie;
 //$_SESSION['login'] = 'alekseybibikov@mail.ru'; // создание session
 //$_SESSION['password'] = '15651987Alex';
 //setcookie("PHPSESSID", '', time()-3600); // удаление cookie
 
-// Lesson 18 Проект из нескольких файлов
+// Lesson 19 Проект из нескольких файлов
 
 //set_include_path ('.'. PATH_SEPARATOR. "C:\Users\Алексей\PhpstormProjects\untitled\myPhptest\.idea");
 //// Устанавливает дерикторию в переменную PATH для include;
@@ -99,7 +111,7 @@
 //var_dump($f);
 //echo $f_content;
 
-// Lesson 19 Обработка метод POST, GET и получение файлов $_FILES
+// Lesson 20 Обработка метод POST, GET и получение файлов $_FILES
 
 //echo "<pre>";
 //print_r($_POST);
@@ -116,7 +128,7 @@
 //    echo "Ошибка призагрузки файла";
 //}
 
-// Lesson 20 YAML, JSON, XML способ передачи данных между языками.
+// Lesson 21 YAML, JSON, XML способ передачи данных между языками.
 
 //$str_json = file_get_contents("tsconfig.json");
 //print_r($str_json);
@@ -125,7 +137,7 @@
 //$json_callback = json_encode($json, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 //print_r($json_callback);
 
-// Lesson 21 Веб Сервера Apache, Nginx  и ХОСТИНГИ
+// Lesson 22 Веб Сервера Apache, Nginx  и ХОСТИНГИ
 
 /**
  * Виды Хостингов:
@@ -135,7 +147,7 @@
  * Cloud hosting - Облачный хостинг.
  */
 
-// Lesson 22 Разрешение зависимости с помощью composer
+// Lesson 23 Разрешение зависимости с помощью composer
 
 /**
  * getcomposer.org - сайт для установки.
@@ -149,7 +161,7 @@
  * ! Я установил пакет "monolog" и активировал "lesson22.php";
  */
 
-// Lesson 23 Heroku
+// Lesson 24 Heroku
 
 /**
  * heroku create - создает удаленный репозиторий.
