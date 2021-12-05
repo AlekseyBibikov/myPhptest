@@ -1,6 +1,6 @@
 #!/c/php/php/
 <?php
-// declare(strict_types=1);
+declare(strict_types=1);
 // phpinfo();
     //header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
     //header('Content-Disposition: attachment; filename="downloaded.pdf"');
@@ -78,27 +78,50 @@
 	// $callback = 'userFunction'; 
 	// $callback($user);
 
-// lesson 13 Работа с Датой и временем. Отличие Процедурный стиль от ООП. 
+// Lesson 13 Работа с Датой и временем. Отличие Процедурный стиль от ООП. 
 
-	$dateString = date('d-m-y', time()+60*60*24*5); //Вернет string. time() это называется тайм штамп Вернет int
-	$procedura = date_create_from_format('d-m-y', $dateString); //Вернет obj DateTime
-	$procedura = date_modify($procedura, '+10 day');
-	$procedura = date_format($procedura, 'j-M-Y');
-	$object = DateTime::createFromFormat('d-m-y', $dateString); //Вернет obj DateTime. Двойное двоеточие позваляет нам обратится к статическим свойствам, константам, свойствам и методам класса DateTime.
-    $object->modify('+ 10 day');// modify & format - методы класса DateTime
-	$formatString = $object->format('m-d-Y');
-	print_r($object);
+	// $dateString = date('d-m-y', time()+60*60*24*5); //Вернет string. time() это называется тайм штамп Вернет int
+	// $procedura = date_create_from_format('d-m-y', $dateString); //Вернет obj DateTime
+	// $procedura = date_modify($procedura, '+10 day');
+	// $procedura = date_format($procedura, 'j-M-Y');
+	// $object = DateTime::createFromFormat('d-m-y', $dateString); //Вернет obj DateTime. Двойное двоеточие позваляет нам обратится к статическим свойствам, константам, свойствам и методам класса DateTime.
+    // $object->modify('+ 10 day');// modify & format - методы класса DateTime
+	// $formatString = $object->format('m-d-Y');
+	// print_r($object);
+	
+// Lesson 15 Ошибки и обработка Исключений. PARSE ERROR, FATAL ERROR, WARNING & NOTICE. DEPRECATED - использование устаревшего функционала. 
+
+	// error_reporting(E_ALL); //Выводит ошибки на экран или ini_set('error_reporting', E_ALL) одно и тоже.
+	// настройка в php.ini
+	
+	// function inverse(int $x): float {
+		// if ($x === 0){
+			// throw new DivisionByZeroError('Я не умею делить на ноль');
+		// }  //В этом блоке произошло выброс сообщение об ошибки.
+		// return 1/$x;
+	// }
+	// try{
+		// echo inverse(). PHP_EOL;
+	// } //Однако здесь происходит перехват исключения
+	// catch(DivisionByZeroError $ER){
+		// echo "Произошла ошибка: {$ER->getMessage()}" . PHP_EOL;
+	// }
+	// catch(ArgumentCountError $ER){
+		// echo "Произошла ошибка: Пропущен аргумент {$ER->getMessage ()}" . PHP_EOL;
+	// } //Исключение обработано и выведено на экран полное сообщение.
+	// finally{
+		// echo 'Программа завершена';
+	// }// В любом случае сработает
 
 // Lesson 18 Cookies and global $_SESSION
 
-// session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
-// $name = "TestCookie";
-// $value = "SERVER_PROTOCOL : " . $_SERVER['SERVER_PROTOCOL'];
-// $expires = time()+60;
-// setcookie($name, $value); // создание cookie;
-//$_SESSION['login'] = 'alekseybibikov@mail.ru'; // создание session
-//$_SESSION['password'] = '15651987Alex';
-//setcookie("PHPSESSID", '', time()-3600); // удаление cookie
+	// session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
+	// $name = "TestCookie";
+	// $value = "SERVER_PROTOCOL : " . $_SERVER['SERVER_PROTOCOL'];
+	// setcookie($name, $value); // создание cookie;
+	// $_SESSION['login'] = 'alekseybibikov@mail.ru'; // создание session
+	// $_SESSION['password'] = '15651987Alex';
+	// setcookie("PHPSESSID", '', time()-3600); // удаление cookie
 
 // Lesson 19 Проект из нескольких файлов
 
@@ -149,17 +172,17 @@
 
 // Lesson 23 Разрешение зависимости с помощью composer
 
-/**
- * getcomposer.org - сайт для установки.
- * packagist.org - сайт для установке пакетов
- * команды для установки:
- *      > composer require <название пакета>
- *      > composer install  - проверяет актуальные версии пакетов
- *      > composer update - обновление пакетов
- * Файл composer.lock был сгенерирован автоматически НЕ ДЛЯ РЕДАКТИРОВАНИЯ. В нем находится "Все хеши комитов"  (текушая инфомация о пакетах)
- * Файл composer.json МОЖНО РЕДОКТИРОВАТЬ, в нем указаны версии пакетов, данные об авторе
- * ! Я установил пакет "monolog" и активировал "lesson22.php";
- */
+	/**
+	 * getcomposer.org - сайт для установки.
+	 * packagist.org - сайт для установке пакетов
+	 * команды для установки:
+	 *      > composer require <название пакета>
+	 *      > composer install  - проверяет актуальные версии пакетов
+	 *      > composer update - обновление пакетов
+	 * Файл composer.lock был сгенерирован автоматически НЕ ДЛЯ РЕДАКТИРОВАНИЯ. В нем находится "Все хеши комитов"  (текушая инфомация о пакетах)
+	 * Файл composer.json МОЖНО РЕДОКТИРОВАТЬ, в нем указаны версии пакетов, данные об авторе
+	 * ! Я установил пакет "monolog" и активировал "lesson22.php";
+	 */
 
 // Lesson 24 Heroku
 
