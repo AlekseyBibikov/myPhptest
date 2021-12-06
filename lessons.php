@@ -1,10 +1,6 @@
-#!/c/php/php/
 <?php
 declare(strict_types=1);
 // phpinfo();
-    //header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
-    //header('Content-Disposition: attachment; filename="downloaded.pdf"');
-    //readfile('text.pdf');
 
 // Lesson 4 Потоки ввода и вывода.
 
@@ -91,13 +87,18 @@ declare(strict_types=1);
 	
 // Lesson 15 Ошибки и обработка Исключений. PARSE ERROR, FATAL ERROR, WARNING & NOTICE. DEPRECATED - использование устаревшего функционала. 
 
-	// error_reporting(E_ALL); //Выводит ошибки на экран или ini_set('error_reporting', E_ALL) одно и тоже.
-	// настройка в php.ini
+	// error_reporting(E_ALL); //Или ini_set('error_reporting', E_ALL) одно и тоже. 
+	// настройка в php.ini отношение к ошибкам. При изменения параметра изменяется поведение к ошибкам. Это нужно для разной сферы разработки!
 	
 	// function inverse(int $x): float {
 		// if ($x === 0){
+			// echo 'no';
 			// throw new DivisionByZeroError('Я не умею делить на ноль');
 		// }  //В этом блоке произошло выброс сообщение об ошибки.
+		// else if($x == null){
+			// echo 'yes';
+			// throw new ArgumentCountError('Аргумента нет');
+		// }
 		// return 1/$x;
 	// }
 	// try{
@@ -113,43 +114,58 @@ declare(strict_types=1);
 		// echo 'Программа завершена';
 	// }// В любом случае сработает
 
+// Lesson 17  Обработка HTTP. Запросы, Ответы.
+
+	// header ('Location: http://google.com'); // Перенаправление на другой сайт
+    // header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
+    // header('Content-Disposition: attachment; filename="downloaded.txt"');// Передает содержимое ниже в виде файла.
+	// echo "hi my name downloaded.txt";
+    // readfile('text.txt');// Читает файл и выводит в браузере.
+
+
 // Lesson 18 Cookies and global $_SESSION
 
-	// session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
 	// $name = "TestCookie";
 	// $value = "SERVER_PROTOCOL : " . $_SERVER['SERVER_PROTOCOL'];
-	// setcookie($name, $value); // создание cookie;
-	// $_SESSION['login'] = 'alekseybibikov@mail.ru'; // создание session
-	// $_SESSION['password'] = '15651987Alex';
+	// setcookie($name, $value); // Устанавливает cookie;
 	// setcookie("PHPSESSID", '', time()-3600); // удаление cookie
+	// session_start(); // создает cookie PHPSESSID ДЛЯ $_SESSION - которая не видна в браузере а находится на сервере.
+
+	// echo '<pre>';
+		// print_r($_SESSION);
+	// echo '<pre/>';
+	
+	// $_SESSION['login'] = 'alekseybibikov@mail.ru'; // создание session Записывается на стороне сервера.
+	// $_SESSION['password'] = '15651987Alex';
+	// unset($_SESSION['password']); // Удаляет параметор.
+	// session_destroy(); // Удаляет все параметры.
 
 // Lesson 19 Проект из нескольких файлов
 
-//set_include_path ('.'. PATH_SEPARATOR. "C:\Users\Алексей\PhpstormProjects\untitled\myPhptest\.idea");
-//// Устанавливает дерикторию в переменную PATH для include;
-//include 'index.php'; //подключаю фаил index.php Есть еще похожая require (но она вызывает E_ERROR если фаил не найден)
-//print_r($domain);// работаю  спеременными в том файле.
-//$f = file("./text.txt");
-//$f_content = file_get_contents("./.idea/php.xml");
-//var_dump($f);
-//echo $f_content;
+	//set_include_path ('.'. PATH_SEPARATOR. "C:\Users\Алексей\PhpstormProjects\untitled\myPhptest\.idea"); // Устанавливает дерикторию в переменную PATH для include;
+	//include 'index.php'; //подключаю фаил index.php Есть еще похожая require (но она вызывает E_ERROR если фаил не найден)
+	//print_r($domain);// работаю  спеременными в том файле.
+	//$f = file("./text.txt");
+	//$f_content = file_get_contents("./.idea/php.xml");
+	//var_dump($f);
+	//echo $f_content;
 
 // Lesson 20 Обработка метод POST, GET и получение файлов $_FILES
 
-//echo "<pre>";
-//print_r($_POST);
-//foreach ($_REQUEST as $key => $value){
-//    echo $key ." => ".$value. PHP_EOL;
-//}
-//print_r($_FILES);
-//echo "<pre/>";
-//$uploaddir = 'C:\Users\Алексей\PhpstormProjects\untitled\myPhptest\.idea\ ';
-//$uploadfile = $uploaddir . basename($_FILES['file_name']['name']);
-//if (move_uploaded_file($_FILES['file_name']['tmp_name'], $uploadfile)){
-//    echo "Фаил успешно загружен";
-//}else{
-//    echo "Ошибка призагрузки файла";
-//}
+	//echo "<pre>";
+	//print_r($_POST);
+	//foreach ($_REQUEST as $key => $value){
+	//    echo $key ." => ".$value. PHP_EOL;
+	//}
+	//print_r($_FILES);
+	//echo "<pre/>";
+	//$uploaddir = 'C:\Users\Алексей\PhpstormProjects\untitled\myPhptest\.idea\ ';
+	//$uploadfile = $uploaddir . basename($_FILES['file_name']['name']);
+	//if (move_uploaded_file($_FILES['file_name']['tmp_name'], $uploadfile)){
+	//    echo "Фаил успешно загружен";
+	//}else{
+	//    echo "Ошибка призагрузки файла";
+	//}
 
 // Lesson 21 YAML, JSON, XML способ передачи данных между языками.
 
