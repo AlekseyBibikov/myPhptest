@@ -1,7 +1,8 @@
 <?php
 declare(strict_types=1);
-echo "hi";
-//var_dump();
+
+
+// var_dump();
 // print_r () - выводит значение;
 //  <=> - оператор сравнения;
 //    $name = fopen('php://stdin', 'r');
