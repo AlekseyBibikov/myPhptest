@@ -1,5 +1,5 @@
 <?php
-
+// Для запуска теста команда composer "exec --verbose phpunit tests" или make test
 namespace Php\Package\Tests;
 
 use PHPUnit\Framework\TestCase;

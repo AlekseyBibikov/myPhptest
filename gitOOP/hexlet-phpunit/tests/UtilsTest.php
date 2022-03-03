@@ -1,4 +1,5 @@
 <?php
+// Для запуска теста - команда "composer exec --verbose phpunit tests" или make test
 namespace Hexlet\Phpunit\Utils;
 
 use PHPUnit\Framework\TestCase;
