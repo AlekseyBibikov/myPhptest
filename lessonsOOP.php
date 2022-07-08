@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-	// Три кита ООП : Инкапсуляция , Наследование, Полиморфизм
+	// Три кита ООП : Инкапсуляция , Наследование, Полиморфизм, Паттерн, Абстрактный класс
 // Инкапсуляция - размещение в оболоке, изоляция, закрытие его либо с целью исклюения влияния на окружающих. Примеры ниже - классы.
 interface ModifyObject{ //interface Это описание public методов, которые предстовляют собой только навзвание метода, описание их аргументов и возврашаемый тип. Тоесть некий протокол для класса который его реализует, а так же которые наследуют этот класс.
 	public function getName():string;
@@ -63,4 +63,42 @@ echo $saydog . PHP_EOL;
 // echo "Мышь говорящая " . $mouse::SAY . ", вдруг говорит " . $mouse::sayAnimal() . PHP_EOL;// к классу можно обратится через объект.
 // var_dump($mouse);
 
+// Паттерн - класс который создает экземпляр самого себя.
+	final class UserFactory
+	{
+	    private static $inst = null;
+	    // Prevent cloning and de-serializing
+	    private function __clone(){}
+	    private function __wakeup(){}
+	    /**
+	     * Call this method to get singleton
+	     *
+	     * @return UserFactory
+	     */
+	    public static function Instance()
+	    {
+		if ($inst === null) {
+		    $inst = new UserFactory();
+		}
+		return $inst;
+	    }
+	    /**
+	     * Private ctor so nobody else can instantiate it
+	     * Теперь только он может инстанцировать себя
+	     */
+	    private function __construct()
+	    {
+	    }
+	}
+//Абстрактный класс - нельзя сделать экземпляр. Он реализует базовый функционал и передает далее классу, ни чего не иполняет.
+	abstract class AbstractClass
+	{
+	    // Данные методы должны быть определены в дочернем классе
+	    abstract protected function getValue();
+	    abstract protected function prefixValue($prefix);
 
+	    // Общий метод
+	    public function printOut() {
+		print $this->getValue() . "\n";
+	    }
+	}
